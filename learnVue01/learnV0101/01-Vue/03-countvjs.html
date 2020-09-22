@@ -26,7 +26,13 @@
                  console.log("subtraction")
                     this.count--;
                 }
-           }
+           },
+            created:function () {
+                console.log("create ");
+            },
+            mounted:function () {
+                console.log("mounted");
+            }
         });
     </script>
 </body>
