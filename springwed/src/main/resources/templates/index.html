@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th:action="@{/user/add}" method="post">
+            <table>
+                <tr>
+                    <td>用户名：</td>
+                    <td><input name="userName" required></input></td>
+                </tr>
+                <tr>
+                    <td>密码：</td>
+                    <td><input th:type="password" name="password" required></input></td>
+                </tr>
+                <tr>
+                    <td><input th:type="radio" th:value="1" name="gender" required></input>男</td>
+                    <td><input th:type="radio" th:value="0" name="gender"></input>女</td>
+                </tr>
+                <tr>
+                    <td>邮箱：</td>
+                    <td><input th:type="email" name="email"></input></td>
+                </tr>
+                <tr>
+                    <td th:cols="2"><button th:type="submit" th:text="提交"/></td>
+                </tr>
+            </table>
+    </form>
+</body>
+</html>

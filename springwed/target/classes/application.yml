@@ -1,0 +1,10 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    type: com.mysql.cj.jdbc.MysqlConnectionPoolDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db2019?characterEncoding=utf8&useSSL=false&useUnicode=true&serverTimezone=UTC
+    username: root
+    password: root
+

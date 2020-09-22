@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.springboot.dao.StockDao">
+    <resultMap id="StockResult" type="Stock">
+        <id column="guid" property="guid" jdbcType="VARCHAR"/>
+        <result column="t_stocknum" property="stockNum" jdbcType="INTEGER"/>
+        <result column="t_stockname" property="stockName" jdbcType="VARCHAR"/>
+        <result column="t_stockAmount" property="stockAmount" jdbcType="INTEGER"/>
+    </resultMap>
+    <select id="listStock" resultMap="StockResult">
+        select * from t_stock;
+    </select>
+    <update id="updateStock" parameterType="Stock">
+        update t_stock
+        <set>
+            <if test="stockNum != null">t_stockNum=#{stockNum},</if>
+            <if test="stockName != null">t_stockName=#{stockName},</if>
+            <if test="stockAmount != null">t_stockAmount=#{stockAmount},</if>
+        </set>
+        where guid=#{guid};
+    </update>
+    <select id="getStock" resultType="Stock" resultMap="StockResult">
+                select * from t_stock where id=#{id};
+    </select>
+</mapper>

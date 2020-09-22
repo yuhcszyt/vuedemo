@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.springboot.dao.AmountDao">
+    <select id="listAmount" resultType="Amount">
+        select * from t_Amount;
+    </select>
+    <update id="updateAmount" parameterType="Amount">
+        update t_stock
+        <set>
+            <if test="totalamount != null">t_totalamount=#{totalamount},</if>
+        </set>
+        where guid=#{guid};
+    </update>
+    <select id="getAmount" resultType="Amount" parameterType="String">
+                select * from t_totalamount where id=#{id};
+    </select>
+</mapper>
