@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+       <h2 :style="{fontSize:finalFontSize,backgroundColor:color}">{{message}}</h2>
+    <h2 :style="getStyleObj()">{{message}}</h2>
+
+</div>
+<script src="../js/vue.js"></script>
+<script>
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello',
+            finalFontSize:'100px',
+            color:'red'
+        },
+        methods:{
+            getStyleObj:function () {
+                return {fontSize:this.finalFontSize,backgroundColor:this.color};
+            }
+        }
+    })
+</script>
+</body>
+</html>
