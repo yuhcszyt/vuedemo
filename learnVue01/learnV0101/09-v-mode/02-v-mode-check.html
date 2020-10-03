@@ -10,7 +10,8 @@
 <!--
      <input type="checkbox" v-model="isAgree">
 -->
-        {{hobbies}}
+    <h2 v-show="hobbies.length>0">{{hobbies}}</h2>
+
     <input type="checkbox" value="篮球" v-model="hobbies">篮球
     <input type="checkbox" value="足球" v-model="hobbies">足球
     <input type="checkbox" value="排球" v-model="hobbies">排球
