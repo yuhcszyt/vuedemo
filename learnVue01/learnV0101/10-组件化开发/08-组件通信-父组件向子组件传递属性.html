@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="app">
+        <cpn v-bind:cmovie="movie" v-bind:cmessage="message"></cpn>
+    </div>
+    <template id="cpn">
+        <!--<p>{{cmovie}}</p>--><!-- 如果想都出现，就必须用div包裹起来-->
+        <div>
+            <ul>
+                <li v-for="item in cmovie">{{item}}</li>
+            </ul>
+            <ol>
+                <li v-for="item in cmovie">{{item}}</li>
+            </ol>
+            <p>{{cmovie}}</p>
+            <h2>{{cmessage}}</h2>
+             <p>{{cmovie}}</p>
+            <h2>{{cmessage}}</h2>
+        </div>
+    </template>
+    <script src="../js/vue.js"></script>
+    <script>
+        const cpn={
+            template:'#cpn',
+            //props:['cmovie','cmessage'],
+            props:{
+                cmessage:{
+                    type: String,
+                    default:'aaaaa',
+                    required:true
+                },
+                cmovie:{
+                    type:Array,
+                    default(){
+                        return []
+                    }
+                }
+            },
+            data(){
+                return {}
+            },
+            methods:{
+
+            }
+        }
+        const app=new Vue({
+            el:'#app',
+            data:{
+                movie:['a','b','c'],
+                message:'hello'
+            },
+            components: {
+                cpn
+            }
+        })
+    </script>
+
+</body>
+</html>
