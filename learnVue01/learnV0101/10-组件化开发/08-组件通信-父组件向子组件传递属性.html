@@ -7,21 +7,21 @@
 <body>
 
     <div id="app">
-        <cpn v-bind:cmovie="movie" v-bind:cmessage="message"></cpn>
+        <cpn v-bind:c-movie="movie" v-bind:c-message="message"></cpn>
     </div>
     <template id="cpn">
         <!--<p>{{cmovie}}</p>--><!-- 如果想都出现，就必须用div包裹起来-->
         <div>
             <ul>
-                <li v-for="item in cmovie">{{item}}</li>
+                <li v-for="item in cMovie">{{item}}</li>
             </ul>
             <ol>
-                <li v-for="item in cmovie">{{item}}</li>
+                <li v-for="item in cMovie">{{item}}</li>
             </ol>
-            <p>{{cmovie}}</p>
-            <h2>{{cmessage}}</h2>
-             <p>{{cmovie}}</p>
-            <h2>{{cmessage}}</h2>
+            <p>{{cMovie}}</p>
+            <h2>{{cMessage}}</h2>
+             <p>{{cMovie}}</p>
+            <h2>{{cMessage}}</h2>
         </div>
     </template>
     <script src="../js/vue.js"></script>
@@ -30,12 +30,12 @@
             template:'#cpn',
             //props:['cmovie','cmessage'],
             props:{
-                cmessage:{
+                cMessage:{
                     type: String,
                     default:'aaaaa',
                     required:true
                 },
-                cmovie:{
+                cMovie:{
                     type:Array,
                     default(){
                         return []
