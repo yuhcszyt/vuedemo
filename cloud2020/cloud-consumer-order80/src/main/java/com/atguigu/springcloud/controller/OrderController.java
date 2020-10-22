@@ -54,6 +54,22 @@ public class OrderController
     @GetMapping("/consumer/payment/get/{id}")
     public CommonResult<Payment> getPayment(@PathVariable("id") Long id)
     {
+        int a=4;
+        System.out.println(a);
+        System.out.println("2433234tfe tew rewf ef dsf dsf d");
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
+    }
+
+    @GetMapping("/consumer/payment/test/{id}")
+    public CommonResult<Payment> test(@PathVariable("id") Long id)
+    {
+
+        return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
+    }
+
+    @GetMapping("/consumer/payment/get2/{id}")
+    public CommonResult<Payment> getPay2ment(@PathVariable("id") Long id)
+    {
         return restTemplate.getForObject(PAYMENT_URL+"/payment/get/"+id,CommonResult.class);
     }
 
