@@ -23,3 +23,8 @@ npm install vue@2.5.21 --save
 
 npm install vue-loader vue-template-compiler@2.5.21 --save-dev
 
+打包html的plugin
+npm install html-webpack-plugin@3.2.0 --save-dev
+
+压缩丑化
+npm install uglifyjs-webpack-plugin@1.3.0 --save-dev

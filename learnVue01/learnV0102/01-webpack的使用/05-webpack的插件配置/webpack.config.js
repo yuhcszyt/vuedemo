@@ -1,16 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
-
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
     entry:'./src/main.js',
     output: {
         path:path.resolve(__dirname,'dist'),
         filename:'bundle.js',
+/*
         publicPath: 'dist/',
+*/
     },
     plugins:[
         new webpack.BannerPlugin("这是yu的版权"),
+        new HtmlWebpackPlugin({template: 'index.html'}),
+        new UglifyJsPlugin()
     ],
     module: {
         rules: [
