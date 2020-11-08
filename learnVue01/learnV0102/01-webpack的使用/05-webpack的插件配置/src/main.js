@@ -8,6 +8,8 @@ require('./css/normal.css');
 require('./css/special.less');
 
 document.writeln("liyinhe");
+document.writeln("yuhaichang jixiaolin");
+document.writeln("jixiaolin");
 
 
 import Vue from 'vue'
@@ -19,4 +21,9 @@ new Vue({
     components:{
         app
     }
-})
+});
+document.write("hahahhah");
+document.write("12412");
+document.write("12412");
+document.writeln("jixiaolin");
+document.writeln("jixiaolin");
