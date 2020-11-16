@@ -1,3 +1,10 @@
+
+npm init 生成初始化文件 package.json
+
+npm run build
+
+npm run dev
+
 webpack
 npm install webpack@3.6.0
 
@@ -55,3 +62,10 @@ module.exports = webpackMerge(
     }
 )
 
+安装脚手架
+npm install -g @vue/cli
+
+安装桥接工具，为了脚手架2
+npm install @vue/cli-init -g
+脚手架2初始化
+vue init webpack my-project
