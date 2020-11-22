@@ -71,3 +71,6 @@ npm install @vue/cli-init -g
 vue init webpack my-project
 
 vue init webpack runtimeonly
+
+创建脚手架3
+vue create testvuecli3

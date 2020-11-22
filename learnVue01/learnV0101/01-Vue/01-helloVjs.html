@@ -28,11 +28,11 @@
           console.log("=============>"+num);
           if(isNaN(num))
              num = "0";
-         let sign = (num == (num = Math.abs(num)));
+          sign = (num == (num = Math.abs(num)));
           console.log("abs=============>"+sign);
           num = Math.floor(num*100+0.50000000001);
           console.log(num);
-          let cents = num%100;
+           cents = num%100;
           console.log("cent==============>"+cents);
           num = Math.floor(num/100).toString();
           console.log("num/100===========>"+num);
