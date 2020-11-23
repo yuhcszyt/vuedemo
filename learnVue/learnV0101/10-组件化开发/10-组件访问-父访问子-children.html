@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--
+    <cpn></cpn>
+-->
+    <cpn ref="cpnt"></cpn>
+
+<!--
+    <cpn></cpn>
+-->
+    <button @click="showMessage1">按钮</button>
+</div>
+
+<template id="cpnc">
+    <div>
+        孙子组件
+    </div>
+</template>
+'
+<template id="cpn">
+    <div>
+        <cpnc ref="bbb"></cpnc>
+        子组件
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    const cpnc={
+        template: '#cpnc',
+        data(){
+            return {
+                dnumber:6
+            }
+        },
+    }
+    const cpn={
+        template:'#cpn',
+        data(){
+            return {
+                dnumber:5
+            }
+        },
+        methods: {
+            showMessage() {
+                console.log("this is child");
+            }
+        },
+        components:{
+            cpnc
+        }
+    };
+    const app=new Vue({
+        el:'#app',
+        data:{
+            message:'hello'
+        },
+        components: {
+         cpn
+        },
+        methods:{
+            showMessage1(){
+                console.log(this.$refs.cpnt);
+                this.$refs.cpnt.showMessage()
+                console.log(this.$refs);
+                //this.$children[0].showMessage();
+            }
+        }
+    })
+</script>
+
+
+</body>
+</html>

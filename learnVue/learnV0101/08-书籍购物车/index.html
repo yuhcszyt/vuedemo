@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<script src="../js/vue.js"/>
+<script src="./main.js"></script>
+    <div id="app">
+        <table>
+            <thead>
+                <td></td>
+                <td>书籍名称</td>
+                <td>出版日期</td>
+                <td>价格</td>
+                <td>购买数量</td>
+                <td>操作</td>
+            </thead>
+            <tr v-for="(item,index) in books">
+                <td >{{item.id}}</td>
+                <td >{{item.name}}</td>
+                <td >{{item.date}}</td>
+                <td >{{item.price | formatPrice}}</td>
+                <td ><button v-bind:disabled="item.count<=1" @click="decrement(index)">-</button>{{item.count}}<button @click="increment(index)">+</button></td>
+                <td><button @click="cliRemove(index)">移除</button></td>
+            </tr>
+        </table>
+
+        <h2 v-if="books.length">总价格:{{totalPrice}}</h2>
+        <h2 v-else>
+            kong
+        </h2>
+    </div>
+<script>
+    const app= new Vue({
+        el:'#app',
+        computed:{
+            /*totalPrice(){
+                let totalPrice=0;
+            }*/
+            totalPrice(){
+            let totalPriceTemp=0;
+            for(let book of this.books){
+            totalPriceTemp+=book.price
+        }
+        return totalPriceTemp;
+    }
+        },
+        methods:{
+            cliRemove(index){
+                this.books.splice(index,1);
+            },
+            decrement(index) {
+             this.books[index].count--;
+            },
+            increment(index){
+                this.books[index].count++;
+
+            }
+        },
+        filters:{
+            formatPrice(price){
+                return price.toFixed(2);
+            }
+        },
+        data:{
+            books:[
+                {
+                    id:1,
+                    name:'shuihu',
+                    date:'2010-9',
+                    price:85.00,
+                    count:1
+                },
+                {
+                    id:1,
+                    name:'hongloumeng',
+                    date:'2000-10',
+                    price:100.00,
+                    count:3
+                },
+                {
+                    id:1,
+                    name:'xiyouji',
+                    date:'2040-9',
+                    price:100.00,
+                    count:5
+                },
+                {
+                    id:1,
+                    name:'sanguo',
+                    date:'2054-10',
+                    price:85.00,
+                    count:7
+                },
+            ]
+        }
+    });
+</script>
+</body>
+</html>
