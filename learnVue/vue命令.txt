@@ -75,3 +75,8 @@ vue init webpack runtimeonly
 
 创建脚手架3
 vue create testvuecli3
+
+router：
+local.hash=hash
+history.pushState(state, title, url);
+history.replaceState(data, title, url);
