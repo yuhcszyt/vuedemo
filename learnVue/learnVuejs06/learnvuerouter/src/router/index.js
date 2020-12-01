@@ -1,26 +1,77 @@
 import VueRouter from "vue-router";
 import Vue from 'vue'
 
-import home from '../components/home'
-import about from '../components/about'
+/*
+import Home from '../components/Home'
+import About from '../components/About'
+import User from '../components/User'
+*/
+
+const Home= ()=> import('../components/Home');
+const About= ()=> import('../components/About');
+const User= ()=> import('../components/User');
+const HomeNews= ()=> import('../components/HomeNews');
+const HomeMessage= ()=> import('../components/HomeMessage');
+const Profile= ()=> import('../components/Profile');
+
 
 //安装插件 router-link  router-view $router 全局
 Vue.use(VueRouter);
 
 const routes=[
   //default 跳转
-  /*{
+  {
     path:'',
     redirect:"/home"
-  },*/
+  },
   {
-
     path:"/home",
-    component:home
+    component:Home,
+    meta:{
+      title:'首页'
+    },
+    children:[
+      {
+        path:"",
+        redirect:'message',
+      },
+      {
+        path:"news",
+        component: HomeNews,
+        meta:{
+          title:'新闻'
+        }
+      },
+      {
+        path:"message",
+        component: HomeMessage,
+        meta:{
+          title:'消息'
+        }
+      }
+    ]
+  },
+  {
+    path:"/profile",
+    component: Profile,
+    meta:{
+      title:'名片'
+    }
   },
   {
     path:"/about",
-    component:about
+    component:About,
+    meta:{
+      title:'关于'
+    }
+  },
+  {
+    path:"/user/:userId",
+   // path:"/user",
+    component:User,
+    meta:{
+      title:'用戶'
+    }
   }
 ]
 
@@ -29,5 +80,12 @@ const router = new VueRouter({
   routes,
   linkActiveClass:'active'
 })
+
+router.beforeEach((to,from,next)=>{
+  console.log(to);
+  document.title=to.matched[0].meta.title;
+  //document.title=to.meta.title;
+  next();
+});
 
 export  default router
