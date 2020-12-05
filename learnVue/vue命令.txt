@@ -77,6 +77,8 @@ vue init webpack runtimeonly
 vue create testvuecli3
 
 router：
+npm install vue-router --save
+
 local.hash=hash
 history.pushState(state, title, url);
 history.replaceState(data, title, url);

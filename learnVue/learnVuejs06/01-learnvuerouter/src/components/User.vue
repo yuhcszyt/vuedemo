@@ -13,6 +13,12 @@
             userId(){
                 return this.$route.params.userId;
             }
+        },
+        created() {
+            console.log('user');
+        },
+        destroyed() {
+            console.log('userDestroy');
         }
     }
 </script>

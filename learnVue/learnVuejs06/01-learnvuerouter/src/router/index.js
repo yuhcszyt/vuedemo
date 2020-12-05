@@ -75,6 +75,7 @@ const routes=[
   }
 ]
 
+//前置守卫
 const router = new VueRouter({
   mode:'history',
   routes,

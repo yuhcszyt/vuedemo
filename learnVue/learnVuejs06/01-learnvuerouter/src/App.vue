@@ -18,8 +18,9 @@
     <button @click="linkToUser">用户</button>
     <button @click="linkToProfile">档案</button>
 
+    <keep-alive exclude="Profile,user">
     <router-view></router-view>
-
+    </keep-alive>
   </div>
 </template>
 
