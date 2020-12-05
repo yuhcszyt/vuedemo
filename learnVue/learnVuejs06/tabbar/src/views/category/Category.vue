@@ -1,5 +1,7 @@
 <template>
+  <div>
     this is Category
+  </div>
 </template>
 
 <script>
