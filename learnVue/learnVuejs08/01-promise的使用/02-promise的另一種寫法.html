@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var myDate = new Date();
+    const a=myDate.getMilliseconds();
+    new Promise((resolve, reject)=>{
+        const hello='hello';
+        setTimeout(()=>{
+            console.log(hello);
+        },1000);
+        //resolve(hello)
+        reject(hello)
+    }).then((data)=>{
+        console.log(data);
+        console.log(data);
+        console.log(data);
+        console.log(data);
+        console.log(data);
+    },err=> console.log(err)
+    )
+</script>
+</body>
+</html>
