@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>{{msg}}</h1>
+    <h1>{{msg}}</h1><!--要用comput去获取，否则不是响应式-->
     <hello-world counter=yu></hello-world>
     <button @click="addition()">+</button>
     <button @click="subtraction()">-</button>
@@ -9,12 +9,23 @@
     <button @click="addStu">添加学生</button>
     <button @click="delStu">del学生</button>
 
+    <button @click="updatePerson">更新人信息</button>
+
+    <h1>-------------module--------------</h1>
+    <h2>{{$store.state.a.personA}}</h2>
+    <h2>{{$store.state.a.count}}</h2>
+    <h2>{{$store.getters.getCount}}</h2>
+    <h2>{{$store.getters.getName}}</h2>
+    <h2>{{$store.getters.getRootName}}</h2>
+    <button @click="addCountA(10)">+10</button>
+    <button @click="updatePerAction('钟紫娟',16)">更新人信息</button>
 
   </div>
 </template>
 
 <script>
   import HelloWorld from "./components/HelloWorld";
+  import {INCREMENT} from "@/store/mutations-types";
     export default {
         data(){
             return {msg:this.$store.state.counter}
@@ -25,7 +36,7 @@
       },
         methods:{
             addition(){
-                this.$store.commit('increment');
+                this.$store.commit(INCREMENT);
             },
             subtraction(){
                 this.$store.commit('decrement');
@@ -45,6 +56,32 @@
             },
             delStu(){
                 this.$store.commit('delstu');
+            },
+            updatePerson(){
+                this.$store.dispatch('updateInfoAction',{
+                    success:'chenggong',
+                    msg:'hello'
+                }).then((res)=>{
+                    console.log(res);
+                });
+            },
+            addCountA(count){
+                this.$store.commit({
+                    type:'addCountA',
+                    count
+                });
+/*
+                this.$store.commit('addCountA',count);
+*/
+            },
+            updatePerAction(name,age){
+                this.$store.dispatch('updateNameAction',{
+                    name,
+                    age,
+                    msg:'test'
+                }).then((res)=>{
+                    console.log(res);
+                })
             }
         }
 }
