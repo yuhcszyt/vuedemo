@@ -27,6 +27,7 @@ const routes=[
   {
     path:"/home",
     component:Home,
+    name:'首页',
     meta:{
       title:'首页'
     },
@@ -38,6 +39,7 @@ const routes=[
       {
         path:"news",
         component: HomeNews,
+        name:'新闻',
         meta:{
           title:'新闻'
         }
@@ -45,6 +47,7 @@ const routes=[
       {
         path:"message",
         component: HomeMessage,
+        name:'消息',
         meta:{
           title:'消息'
         }
@@ -83,7 +86,8 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=>{
-  console.log(to);
+  const vm = to;
+  console.log(vm);
   document.title=to.matched[0].meta.title;
   //document.title=to.meta.title;
   next();

@@ -1,4 +1,4 @@
-import {flag,sum} from "./aaa.js";
+import {flag,sum} from "./bbb.js";
 import {Person} from "./bbb.js";
 import defaultdata from "./bbb.js";
 

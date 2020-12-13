@@ -82,3 +82,6 @@ npm install vue-router --save
 local.hash=hash
 history.pushState(state, title, url);
 history.replaceState(data, title, url);
+
+vuex:
+npm install vuex --save
