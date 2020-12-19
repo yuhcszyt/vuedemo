@@ -85,3 +85,6 @@ history.replaceState(data, title, url);
 
 vuex:
 npm install vuex --save
+
+axios:
+npm install axios --save
